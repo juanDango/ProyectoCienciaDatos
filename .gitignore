@@ -21,4 +21,6 @@ proyecto-venv/
 
 *.json
 *.xlsx
+*.csv
+*.DS_Store
 
