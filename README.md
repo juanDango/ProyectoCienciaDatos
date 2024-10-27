@@ -1,6 +1,6 @@
 # SEGMENTACIÓN DE COMPAÑIAS
 
-Este repositorio contiene la primera etapa del análisis y procesamiento de 10000 registros de compañias de Bogotá.
+Este repositorio contiene la primera etapa del análisis y procesamiento de 10.000 registros de compañíaas de Bogotá.
 
 Se busca explorar y segmentar compañías según distintos factores financieros y de rentabilidad.
 
@@ -20,10 +20,11 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Participantes
 
-Javier Gómez  
-Juan Castrellón  
-Kevin Becerra  
-Laura Roncancio  
+Juan Daniel Castrellón (201729285)
+Kevin Camilo Becerra Walteros (201812779) 
+Laura Andrea Roncancio Pava (201815149)
+Javier Alejandro Gómez Muñóz (201217975)
+ 
 
 ## Ejecución
 
