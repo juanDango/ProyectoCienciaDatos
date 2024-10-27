@@ -6,24 +6,24 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Estructura del proyecto
 
-.
-├── datos
-│   ├── componentes.csv
-│   ├── Export.xlsx
-│   ├── Pruebas2.csv
-│   └── Pruebas.csv
-├── eda.ipynb
-├── README.md
-└── requirements.txt
+.  
+├── datos  
+│   ├── componentes.csv  
+│   ├── Export.xlsx  
+│   ├── Pruebas2.csv  
+│   └── Pruebas.csv  
+├── eda.ipynb  
+├── README.md  
+└── requirements.txt  
 
 ** Los datos no estan incluidos en el repositorio, por políticas del proveedor **
 
 ## Participantes
 
-Javier Gómez
-Juan Castrellón
-Kevin Becerra
-Laura Roncancio
+Javier Gómez  
+Juan Castrellón  
+Kevin Becerra  
+Laura Roncancio  
 
 ## Ejecución
 
