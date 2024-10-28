@@ -1,6 +1,6 @@
 # SEGMENTACIÓN DE COMPAÑIAS
 
-Este repositorio contiene la primera etapa del análisis y procesamiento de 10.000 registros de compañíaas de Bogotá.
+Este repositorio contiene la primera etapa del análisis y procesamiento de 10.000 registros de compañías de Bogotá.
 
 Se busca explorar y segmentar compañías según distintos factores financieros y de rentabilidad.
 
