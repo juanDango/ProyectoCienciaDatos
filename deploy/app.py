@@ -4,6 +4,8 @@ import numpy as np
 from typing import List, Dict
 from preprocess_pipeline import run_pipeline
 from fastapi.responses import JSONResponse
+import uvicorn
+import json
  
 
 # Cargar el modelo K-Means guardado como joblib
@@ -23,20 +25,21 @@ def classify_companies(companies: List[Dict]):
     """
     try:
         # Preprocesar los datos de la empresa
-        processed_data = run_pipeline(companies)
-            
-        # Convertir los datos preprocesados a un array para el modelo
-        # (Asegúrate de que las claves y el orden coincidan con lo esperado por el modelo)
-        features = np.array([list(processed_data.values())]).reshape(1, -1)
+        processed_data, transformed = run_pipeline(companies)
             
         # Realizar la predicción de clúster
-        cluster = model.predict(features)[0]
+        cluster = model.predict(processed_data)
             
         # Agregar el resultado al JSON final
-        processed_data["cluster"] = cluster
-        json_data = processed_data.to_json(orient="records")
-        
+        transformed["cluster"] = cluster
+        json_string = transformed.to_json(orient="records")
+        json_data = json.loads(json_string)  # Convertir la cadena JSON a un objeto Python (lista de diccionarios)
+
+        # Devolver la respuesta JSON
         return JSONResponse(content=json_data)
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error al procesar los datos: {str(e)}")
 
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

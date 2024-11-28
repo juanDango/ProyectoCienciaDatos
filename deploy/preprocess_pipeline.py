@@ -7,6 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 import matplotlib.pyplot as plt
 import re
+import joblib
 
 naics_map = {
         '11': 'Agricultura, Pesca y Minería',
@@ -216,9 +217,9 @@ def run_pipeline(file_path):
 
     # Reinicia el índice para evitar que sea considerado una columna
     transformed_data = transformed_data.reset_index(drop=True)
+
+    preprocessor = joblib.load('preprocessor.pkl')
     
-    # Preprocesamiento
-    preprocessor = prepare_pipeline(transformed_data[transformed_data.columns[1:]])
-    processed_data = preprocessor.fit_transform(transformed_data[transformed_data.columns[1:]])
+    processed_data = preprocessor.transform(transformed_data[transformed_data.columns[1:]])
         
     return processed_data, transformed_data
