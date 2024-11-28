@@ -1,12 +1,13 @@
-import pandas as pd
+import re
+
+
 import numpy as np
+import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-import matplotlib.pyplot as plt
-import re
+
 
 naics_map = {
         '11': 'Agricultura, Pesca y Minería',
