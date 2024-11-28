@@ -2,93 +2,36 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import html
 
+from components.download_button import download_button
+from components.upload import upload_component
+from components.process_button import process_button
+from components.table import result_table
 
-dash.register_page(__name__, path="/page2")
+
+dash.register_page(__name__, path="/segmentacion")
 
 layout = dbc.Container(
     [
-        html.Div(
-            className="content",
-            children=[
-                html.Div(
-                    className="left_menu",
-                    children=[
-                        html.Div(
-                            className="grid_left",
-                            children=[
-                                dbc.Row(
-                                    "FILTROS page2",
-                                    class_name="left_div div1_left",
-                                ),
-                                dbc.Row(
-                                    children=[
-                                    ],
-                                    class_name="left_div div2_left",
-                                ),
-                                dbc.Row(
-                                    children=[
-                                    ],
-                                    class_name="left_div div2_left",
-                                ),
-                                dbc.Row(
-                                    children=[
-                                    ],
-                                    class_name="left_div div2_left",
-                                ),
-                                dbc.Row(
-                                    children=[
-                                    ],
-                                    class_name="left_div div2_left",
-                                ),
-                                dbc.Row(
-                                    children=[
-                                    ],
-                                    class_name="left_div div2_left",
-                                ),
-                            ],
-                        ),
-                    ],
-                ),
-                html.Div(
-                    className="right_content",
-                    children=[
-                        html.Div(
-                            className="grid",
-                            children=[
-                                dbc.Row(
-                                    className="right_div div1",
-                                    children=[
-                                    ],
-                                ),
-                                dbc.Row(
-                                    class_name="right_div div2",
-                                    children=[
-                                    ],
-                                ),
-                                dbc.Row(
-                                    class_name="right_div div3",
-                                    children=[
-                                    ],
-                                ),
-                                dbc.Row(
-                                    className="right_div div4",
-                                    children=[
-                                    ],
-                                ),
-                                dbc.Row(
-                                    class_name="right_div div5",
-                                    children=[
-                                    ],
-                                ),
-                            ],
-                        )
-                    ],
-                ),
+        html.H1("Clústeres con Modelo Entrenado", className="text-center mb-4"),
+        dbc.Row(
+            [
+                dbc.Col(upload_component(), width=6),
+                dbc.Col(process_button(), width=6),
             ],
+            className="mb-3",
+        ),
+        dbc.Row(
+            [
+                dbc.Col(result_table(), width=12),
+            ],
+            className="mb-3",
+        ),
+        dbc.Row(
+            [
+                dbc.Col(download_button(), width=12),
+            ],
+            className="mb-3",
         ),
     ],
-    fluid=True,
-    class_name="px-0",
+    fluid=True
 )
-
-

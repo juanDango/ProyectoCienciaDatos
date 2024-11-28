@@ -6,7 +6,7 @@ LOGO = "https://data.org/wp-content/uploads/2022/02/Universidad-de-los-Andes.png
 links = dbc.Row(
     [
         dbc.Col(html.A("INICIO", href="/")),
-        dbc.Col(html.A("PAGE2", href="/page2")),
+        dbc.Col(html.A("NUEVO", href="/segmentacion")),
     ],
     align="center",
     className="g-6 ms-auto",
