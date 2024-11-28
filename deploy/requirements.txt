@@ -1,5 +1,6 @@
-fastapi
-uvicorn
-joblib
+fastapi==0.95.2
+uvicorn==0.22.0
 numpy
+pandas
 scikit-learn
+joblib

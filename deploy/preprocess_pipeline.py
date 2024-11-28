@@ -2,10 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-import matplotlib.pyplot as plt
 import re
 import joblib
 
@@ -221,5 +219,6 @@ def run_pipeline(file_path):
     preprocessor = joblib.load('preprocessor.pkl')
     
     processed_data = preprocessor.transform(transformed_data[transformed_data.columns[1:]])
-        
+    
     return processed_data, transformed_data
+        
