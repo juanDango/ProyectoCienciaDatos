@@ -1,0 +1,19 @@
+# Imagen base de Python
+FROM python:3.10-slim
+
+# Crear el directorio de trabajo en el contenedor
+WORKDIR /app
+
+# Copiar los archivos necesarios
+COPY app.py .
+COPY kmeans_model.joblib .
+COPY requirements.txt .
+
+# Instalar dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exponer el puerto 8000 para FastAPI
+EXPOSE 8000
+
+# Comando para iniciar la aplicación
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
