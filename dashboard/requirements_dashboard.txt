@@ -1,6 +1,8 @@
 dash
 dash-bootstrap-components
 matplotlib
+openpyxl
 plotly
 pandas
-
+requests
+scikit-learn

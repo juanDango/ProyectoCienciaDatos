@@ -1,13 +1,11 @@
-import re
-
-
-import numpy as np
 import pandas as pd
+import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-
+import re
+import joblib
 
 naics_map = {
         '11': 'Agricultura, Pesca y Minería',
@@ -217,9 +215,10 @@ def run_pipeline(file_path):
 
     # Reinicia el índice para evitar que sea considerado una columna
     transformed_data = transformed_data.reset_index(drop=True)
+
+    preprocessor = joblib.load('preprocessor.pkl')
     
-    # Preprocesamiento
-    preprocessor = prepare_pipeline(transformed_data[transformed_data.columns[1:]])
-    processed_data = preprocessor.fit_transform(transformed_data[transformed_data.columns[1:]])
-        
+    processed_data = preprocessor.transform(transformed_data[transformed_data.columns[1:]])
+    
     return processed_data, transformed_data
+        

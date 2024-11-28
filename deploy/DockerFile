@@ -6,6 +6,8 @@ WORKDIR /app
 
 # Copiar los archivos necesarios
 COPY app.py .
+COPY preprocess_pipeline.py .
+COPY preprocessor.pkl .
 COPY kmeans_model.joblib .
 COPY requirements.txt .
 
