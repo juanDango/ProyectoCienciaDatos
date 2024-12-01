@@ -62,7 +62,7 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Participantes
 
-- Juan Daniel Castrellón (201729285)
+- Juan Daniel Castrellón Botero (201729285)
 - Kevin Camilo Becerra Walteros (201812779) 
 - Laura Andrea Roncancio Pava (201815149)
 - Javier Alejandro Gómez Muñóz (201217975)
