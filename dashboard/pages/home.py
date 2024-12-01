@@ -1,7 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
-import pandas as pd
-from dash import html
+from dash import dcc, html
 
 from components.filters.cluster import cluster_filter
 from components.filters.industry import industry_filter
@@ -15,14 +14,15 @@ from components.charts.high_income import high_income_chart
 from components.charts.sector_income import sector_income_chart
 from components.charts.roa_roe import roa_roe_chart
 from components.charts.liquidity import liquidity_chart
-from components.charts.opportunities import opportunities_chart
+from components.charts.opportunities import OpportunitiesChart
 from components.charts.operational_capacity import operational_capacity_chart
 from components.charts.debt_reduction import debt_reduction_chart
 from components.charts.high_debt import high_debt_chart
+from utils.data_loader import DataLoader
 
 dash.register_page(__name__, path="/")
+data_instance = DataLoader(file_path="datos/complete_payload.json")
 
-data = pd.read_json("datos/complete_payload.json")
 
 layout = dbc.Container(
     [
@@ -42,6 +42,7 @@ layout = dbc.Container(
                                 ),
                                 dbc.Row(
                                     html.Div([
+                                        dcc.Store(id='data-loaded', data=True),
                                         html.Label("Cluster:", className="filter-label"),
                                         cluster_filter()
                                     ]),
@@ -49,50 +50,50 @@ layout = dbc.Container(
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Sector Industrial:", className="filter-label"),
-                                        industry_filter()
+                                        # html.Label("Sector Industrial:", className="filter-label"),
+                                        # industry_filter()
                                     ]),
                                     class_name="left_div div3_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Tendencia de Ingresos Operativos (%):", className="filter-label"),
-                                        revenue_trend_filter()
+                                        # html.Label("Tendencia de Ingresos Operativos (%):", className="filter-label"),
+                                        # revenue_trend_filter()
                                     ]),
                                     class_name="left_div div4_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Número de Empleados:", className="filter-label"),
-                                        employees_filter()
+                                        # html.Label("Número de Empleados:", className="filter-label"),
+                                        # employees_filter()
                                     ]),
                                     class_name="left_div div5_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Liquidez (Quick Ratio):", className="filter-label"),
-                                        liquidity_filter()
+                                        # html.Label("Liquidez (Quick Ratio):", className="filter-label"),
+                                        # liquidity_filter()
                                     ]),
                                     class_name="left_div div6_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Deuda a Largo Plazo:", className="filter-label"),
-                                        long_term_debt_filter()
+                                        # html.Label("Deuda a Largo Plazo:", className="filter-label"),
+                                        # long_term_debt_filter()
                                     ]),
                                     class_name="left_div div7_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Deuda a Corto Plazo:", className="filter-label"),
-                                        short_term_debt_filter()
+                                        # html.Label("Deuda a Corto Plazo:", className="filter-label"),
+                                        # short_term_debt_filter()
                                     ]),
                                     class_name="left_div div8_left",
                                 ),
                                 dbc.Row(
                                     html.Div([
-                                        html.Label("Ingresos Totales (USD):", className="filter-label"),
-                                        total_revenue_filter()
+                                        # html.Label("Ingresos Totales (USD):", className="filter-label"),
+                                        # total_revenue_filter()
                                     ]),
                                     class_name="left_div div9_left",
                                 ),
@@ -111,56 +112,63 @@ layout = dbc.Container(
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(opportunities_chart(data))
+                                        dbc.Card(
+                                            class_name="card_figure",
+                                            id="opportunities-chart",
+                                            children=OpportunitiesChart(
+                                                id_graph="opportunities-chart",
+                                                data=data_instance.get_data()
+                                            ).render()
+                                        )
                                     ],
                                 ),
                                 # Gráfico 2: ROA y ROE superiores
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(roa_roe_chart(data))
+                                        # html.Div(roa_roe_chart(data))
                                     ],
                                 ),
                                 # Gráfico 3: Empresas con ingresos altos
                                 dbc.Row(
                                     className="right_div",
                                     children=[
-                                        html.Div(high_income_chart(data))
+                                        # html.Div(high_income_chart(data))
                                     ],
                                 ),
                                 # Gráfico 4: Distribución de liquidez
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(liquidity_chart(data))
+                                        # html.Div(liquidity_chart(data))
                                     ],
                                 ),
                                 # Gráfico 5: Endeudamiento preocupante
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(high_debt_chart(data))
+                                        # html.Div(high_debt_chart(data))
                                     ],
                                 ),
                                 # Gráfico 6: Capacidad operativa
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(operational_capacity_chart(data))
+                                        # html.Div(operational_capacity_chart(data))
                                     ],
                                 ),
                                 # Gráfico 7: Reducción de deuda
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(debt_reduction_chart(data))
+                                        # html.Div(debt_reduction_chart(data))
                                     ],
                                 ),
                                 # Gráfico 8: Sectores con mayores ingresos
                                 dbc.Row(
                                     class_name="right_div",
                                     children=[
-                                        html.Div(sector_income_chart(data))
+                                        # html.Div(sector_income_chart(data))
                                     ],
                                 ),
                             ],
