@@ -1,0 +1,28 @@
+services:
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    volumes:
+      - ./dashboard:/app
+    ports:
+      - "8050:8050"
+    environment:
+      - API_URL=http://deploy:8000
+    depends_on:
+      - deploy
+    restart: no
+
+  deploy:
+    build:
+      context: ./deploy
+      dockerfile: DockerFile
+    volumes:
+      - ./deploy:/app
+    ports:
+      - "8000:8000"
+    restart: no
+
+networks:
+  default:
+    driver: bridge

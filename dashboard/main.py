@@ -21,6 +21,9 @@ import pandas as pd
 import base64
 from io import BytesIO
 import requests
+import os
+
+URL = os.getenv("API_URL", "http://localhost:8000")
 
 
 def consume_classifier_api(api_url, payload):
@@ -290,7 +293,6 @@ def process_file(n_clicks, contents, filename):
         ]]
         df = df.dropna()
         df_input = df.to_dict(orient="records")
-        URL = "http://0.0.0.0:8000/"
         result_total = consume_classifier_api(URL, df_input)
         df_result = pd.DataFrame(result_total)
 
