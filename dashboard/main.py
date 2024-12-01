@@ -324,5 +324,5 @@ def download_file(n_clicks, data):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    # app.run_server(host="0.0.0.0", port="8050") # For compose!!!
+    # app.run(debug=True) # For local
+    app.run_server(host="0.0.0.0", port="8050") # For compose!!!
