@@ -95,27 +95,27 @@ docker compose up
 
 ![alt text](images/image-1.png)
 
-4. Al ir a la url del dashboard, debe ver la salida inicial, donde puede usar los filtros y navegar sobre las gráficas:  
+5. Al ir a la url del dashboard, debe ver la salida inicial, donde puede usar los filtros y navegar sobre las gráficas:  
 
 ![alt text](images/image-2.png)
 
-4. Para cargar un excel con nuevos datos a segmentar, use la url `http://127.0.0.1:8050/segmentacion`  
+6. Para cargar un excel con nuevos datos a segmentar, use la url `http://127.0.0.1:8050/segmentacion`  
 
-4.1 Cargue el archivo, extraido de Emis, en formato xlsx.  
+6.1 Cargue el archivo, extraido de Emis, en formato xlsx.  
 
-4.1.1. Si el archivo es válido, encontrará una salida similar a la siguiente imagen despues de unos 5 segundos (Pase al paso 4.2.):  
+6.1.1. Si el archivo es válido, encontrará una salida similar a la siguiente imagen despues de unos 5 segundos (Pase al paso 4.2.):  
 
 ![alt text](images/image-3.png)
 
-4.1.2. Si el archivo no es válido, encontrara la salida de la siguiente imagen, y debe buscar un archivo válido:  
+6.1.2. Si el archivo no es válido, encontrara la salida de la siguiente imagen, y debe buscar un archivo válido:  
 
 ![alt text](images/image-4.png)
 
-4.2. Pulse el boton de procesar y espere unos segundos, al final de la página encontrará algo similar, donde la última columna es el cluster:  
+6.2. Pulse el boton de procesar y espere unos segundos, al final de la página encontrará algo similar, donde la última columna es el cluster:  
 
 ![alt text](images/image-5.png)
 
-5. Descargue el archivo procesado:   
+7. Descargue el archivo procesado:   
 
 ![alt text](images/image-6.png)
 
