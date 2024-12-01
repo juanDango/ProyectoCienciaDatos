@@ -1,0 +1,10 @@
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8050:8050"
+    restart: no

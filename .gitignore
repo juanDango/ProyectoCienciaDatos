@@ -23,4 +23,6 @@ proyecto-venv/
 *.xlsx
 *.csv
 *.DS_Store
+__pycache__/
+*.html
 
