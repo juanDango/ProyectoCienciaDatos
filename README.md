@@ -6,15 +6,57 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Estructura del proyecto
 
-.  
-├── datos  
-│   ├── componentes.csv  
-│   ├── Export.xlsx  
-│   ├── Pruebas2.csv  
-│   └── Pruebas.csv  
-├── eda.ipynb  
-├── README.md  
-└── requirements.txt  
+```
+.
+├── compose.yaml
+├── dashboard
+│   ├── assets
+│   │   └── styles.css
+│   ├── callbacks
+│   │   ├── calbback_industry_filter.py
+│   │   ├── callback_cluster_filter.py
+│   │   ├── callback_debtreduction_chart.py
+│   │   ├── callback_highdebt_chart.py
+│   │   ├── callback_liquidity_chart.py
+│   │   ├── callback_operational_capacity_chart.py
+│   │   ├── callback_opportunities_chart.py
+│   │   ├── callback_revenue_chart.py
+│   │   ├── callback_roaroe_chart.py
+│   │   └── callback_sector_chart.py
+│   ├── components
+│   │   ├── charts
+│   │   ├── filters
+│   │   └── navbar.py
+│   ├── config
+│   │   └── config.py
+│   ├── datos
+│   │   └── complete_payload.json
+│   ├── docker-compose.yaml
+│   ├── Dockerfile
+│   ├── main.py
+│   ├── pages
+│   │   ├── home.py
+│   │   └── segmentacion.py
+│   ├── requirements_dashboard.txt
+│   └── utils
+│       └── data_loader.py
+├── deploy
+│   ├── app.py
+│   ├── compose.yaml
+│   ├── DockerFile
+│   ├── kmeans_model.joblib
+│   ├── preprocessor.pkl
+│   ├── preprocess_pipeline.py
+│   └── requirements.txt
+├── eda.ipynb
+├── pipeline_data_preparation.ipynb
+├── Proyecto_Entrega1.pdf
+├── README.md
+└── requirements.txt
+
+12 directories, 34 files
+```
+
 
 ** Los datos no estan incluidos en el repositorio, por políticas del proveedor **
 
@@ -26,9 +68,57 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 - Javier Alejandro Gómez Muñóz (201217975)
  
 
-## Ejecución
+## Ejecución Notebooks
 
-Cree un ambiente virtual usando python3 e instale las librerias de `.requirements.txt`
+Para ejecutar los notebooks, instale las librerias de `.requirements.txt` en su ambiente de jupyter.
+
+## Ejecución Producto de datos
+
+Para ejecutar el producto, tanto el dashboard como la api, siga estos pasos:  
+
+1. Valide que su version de docker compose sea mayor o igual a:
+
+```
+Docker Compose version v2.29.7
+```
+2. Ejecute, desde la ubicacion inicial './':
+
+```
+docker compose up
+```
+
+3. Si todo esta bien, debe ver la imagen:
+
+![alt text](images/image.png)
+
+4. Al ir a la url del api, verá la salida:
+
+![alt text](images/image-1.png)
+
+4. Al ir a la url del dashboar, debe ver la salida inicial, donde puede suar los filtros y navegar sobre las gráficas:  
+
+![alt text](images/image-2.png)
+
+4. Para cargar un excel, use la url `http://127.0.0.1:8050/segmentacion`  
+
+4.1 Cargue el archivo, extraido de Emis, e formato xlsx.  
+
+4.1.1. Si el archivo es idoneo, encontrara la salida despues de unos 5 segundos (Pase al paso 4.2.):  
+
+![alt text](images/image-3.png)
+
+4.1.2. Si el archivo no es valido, encontrara la salida, y debe buscar un archivo válido:  
+
+![alt text](images/image-4.png)
+
+4.2. Pulse el boton de procesar y espere unos segundos, al final de la pagina encuentra algo similar, donde la última columna es el cluster:  
+
+![alt text](images/image-5.png)
+
+5. Descargue el archivo procesado:   
+
+![alt text](images/image-6.png)
+
 
 ## Conclusiones iniciales
 
