@@ -1,6 +1,6 @@
 import dash_bootstrap_components as dbc
-from dash import html
-from dash import dcc
+from dash import dcc, html
+
 
 def download_button():
     return html.Div(

@@ -3,10 +3,9 @@ import dash_bootstrap_components as dbc
 from dash import html
 
 from components.download_button import download_button
-from components.upload import upload_component
 from components.process_button import process_button
 from components.table import result_table
-
+from components.upload import upload_component
 
 dash.register_page(__name__, path="/segmentacion")
 

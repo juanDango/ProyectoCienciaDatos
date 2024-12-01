@@ -1,5 +1,6 @@
 from dash import dash_table
 
+
 def result_table():
     return dash_table.DataTable(
         id='result-table',

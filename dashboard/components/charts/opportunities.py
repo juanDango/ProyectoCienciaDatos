@@ -1,20 +1,19 @@
-from dash import dcc
 import plotly.graph_objects as go
+from dash import dcc
+
 
 class OpportunitiesChart:
     def __init__(self, data, id_graph:str = "opportunities-chart"):
         """
         Clase para crear un gráfico de oportunidades basado en datos agregados por clúster.
-        :param data: DataFrame que contiene las columnas 'cluster',
-                     'Net Sales Revenue Trend (%)', 'Operating Profit Trend (%)',
-                     y 'Total operating revenue'.
+        :param data: DataFrame.
         """
         self.data = data
         self.id_graph = id_graph
 
     def render(self):
         """
-        Genera y devuelve un objeto dcc.Graph con el gráfico de oportunidades.
+        Genera y devuelve un objeto dcc.Graph con el gráfico.
         :return: dcc.Graph
         """
         aggregated_data = self.data.groupby('cluster', as_index=False)[
@@ -65,7 +64,6 @@ class OpportunitiesChart:
             template='plotly_white',
         )
 
-        # Ordenar categorías del eje x
         fig.update_xaxes(type='category', categoryorder='array', categoryarray=all_clusters)
 
         return dcc.Graph(id=self.id_graph, figure=fig)

@@ -1,5 +1,6 @@
 import dash_bootstrap_components as dbc
 
+
 def process_button():
     return dbc.Button(
         "Calcular Clústeres",

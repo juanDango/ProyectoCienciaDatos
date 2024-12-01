@@ -2,10 +2,20 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output
 
+from callbacks.calbback_industry_filter import industry_filter_callback_logic
+from callbacks.callback_cluster_filter import cluster_filter_callback_logic
+from callbacks.callback_debtreduction_chart import \
+    update_debtreduction_chart_logic
+from callbacks.callback_highdebt_chart import update_highdebt_chart_logic
+from callbacks.callback_liquidity_chart import update_liquidity_chart_logic
+from callbacks.callback_operational_capacity_chart import \
+    update_operationalcapacity_chart_logic
+from callbacks.callback_opportunities_chart import \
+    update_opportunities_chart_logic
+from callbacks.callback_revenue_chart import update_revenue_chart_logic
+from callbacks.callback_roaroe_chart import update_roaroe_chart_logic
+from callbacks.callback_sector_chart import update_sector_chart_logic
 from components.navbar import navbar
-from utils.data_loader import DataLoader
-from components.charts.opportunities import OpportunitiesChart
-
 
 app = Dash(
     __name__,
@@ -36,36 +46,153 @@ def create_layout():
 
 app.layout = create_layout()
 
-################## FILTERS ##################
+################## FILTERS ####################################
 ### Cluster filter
 @app.callback(
     Output('cluster-filter', 'options'),
     Input('data-loaded', 'data')
 )
-def test_callback(_):
-    data = DataLoader(file_path="datos/complete_payload.json").get_data()
-    available_clusters = data['cluster'].unique()
-    options = [{'label': f'Cluster {i}', 'value': i} for i in sorted(available_clusters)]
-    return options
+def cluster_filter_callback(_):
+    return cluster_filter_callback_logic()
 
-################## CHARTS ##################
+### Industry filter
 @app.callback(
-    Output('opportunities-chart', 'children'),
-    Input('cluster-filter', 'value')
+    Output('industry-filter', 'options'),
+    Input('data-loaded', 'data')
 )
-def update_opportunities_chart(selected_clusters):
-    full_data = DataLoader(file_path="datos/complete_payload.json")
-    filtered_data = full_data.get_data().copy()
-    if selected_clusters:
-        filtered_data = filtered_data[filtered_data['cluster'].isin(selected_clusters)]
-        print("Here!!!")
-    else:
-        filtered_data = filtered_data
-    print(filtered_data.shape)
-    return OpportunitiesChart(
-        data=filtered_data,
-        id_graph="opportunities-chart"
-    ).render()
+def industry_filter_callback(_):
+    return industry_filter_callback_logic()
+
+################## CHARTS ####################################
+@app.callback(
+    Output('opportunities', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_opportunities_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_opportunities_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+@app.callback(
+    Output('roa_roe', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_roaroe_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_roaroe_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+
+@app.callback(
+    Output('revenue', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_revenue_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_revenue_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+@app.callback(
+    Output('quick', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_liquidity_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_liquidity_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+@app.callback(
+    Output('highdebt', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_highdebt_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_highdebt_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+@app.callback(
+    Output('o_revenue', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_operationalcapacity_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_operationalcapacity_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+
+@app.callback(
+    Output('debt_reduction', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_debtreduction_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_debtreduction_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
+
+@app.callback(
+    Output('industries_s', 'children'),
+    [
+        Input('cluster-filter', 'value'),
+        Input('industry-filter', 'value'),
+        Input('revenue-trend-filter', 'value'),
+        Input('employees-filter', 'value'),
+        Input('liquidity-filter', 'value'),
+        Input('short-term-debt-filter', 'value'),
+        Input('long-term-debt-filter', 'value'),
+        Input('total-revenue-filter', 'value')
+    ]
+)
+def update_sector_chart(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue):
+    return update_sector_chart_logic(clusters, industries, revenue_trend, employees, liquidity, s_debt, l_debt, t_revenue)
 
 
 if __name__ == "__main__":

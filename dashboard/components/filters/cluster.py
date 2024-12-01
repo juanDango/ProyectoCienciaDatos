@@ -1,5 +1,6 @@
 from dash import dcc
 
+
 def cluster_filter():
     return dcc.Dropdown(
         id='cluster-filter',
