@@ -1,6 +1,6 @@
 # SEGMENTACIÓN DE COMPAÑIAS
 
-Este repositorio contiene el `proyecto de análisis y procesamiento de 10.000 registros de compañías de Bogotá`.
+Este repositorio contiene el análisis y procesamiento de 10.000 registros de compañías de Bogotá.
 
 Se busca explorar y segmentar compañías según distintos factores financieros y de rentabilidad.
 
@@ -81,13 +81,13 @@ Para ejecutar el producto, tanto el dashboard como la api, siga estos pasos:
 ```
 Docker Compose version v2.29.7
 ```
-2. Ejecute, desde la ubicacion inicial './':
+2. Ejecute, desde la ubicacion inicial `./`:
 
 ```
 docker compose up
 ```
 
-3. Si todo esta bien, debe ver la imagen:
+3. Si todo esta bien, debe ver algo similar en su terminal:
 
 ![alt text](images/image.png)
 
@@ -95,23 +95,23 @@ docker compose up
 
 ![alt text](images/image-1.png)
 
-4. Al ir a la url del dashboar, debe ver la salida inicial, donde puede suar los filtros y navegar sobre las gráficas:  
+4. Al ir a la url del dashboard, debe ver la salida inicial, donde puede usar los filtros y navegar sobre las gráficas:  
 
 ![alt text](images/image-2.png)
 
-4. Para cargar un excel, use la url `http://127.0.0.1:8050/segmentacion`  
+4. Para cargar un excel con nuevos datos a segmentar, use la url `http://127.0.0.1:8050/segmentacion`  
 
-4.1 Cargue el archivo, extraido de Emis, e formato xlsx.  
+4.1 Cargue el archivo, extraido de Emis, en formato xlsx.  
 
-4.1.1. Si el archivo es idoneo, encontrara la salida despues de unos 5 segundos (Pase al paso 4.2.):  
+4.1.1. Si el archivo es válido, encontrará una salida similar a la siguiente imagen despues de unos 5 segundos (Pase al paso 4.2.):  
 
 ![alt text](images/image-3.png)
 
-4.1.2. Si el archivo no es valido, encontrara la salida, y debe buscar un archivo válido:  
+4.1.2. Si el archivo no es válido, encontrara la salida de la siguiente imagen, y debe buscar un archivo válido:  
 
 ![alt text](images/image-4.png)
 
-4.2. Pulse el boton de procesar y espere unos segundos, al final de la pagina encuentra algo similar, donde la última columna es el cluster:  
+4.2. Pulse el boton de procesar y espere unos segundos, al final de la página encontrará algo similar, donde la última columna es el cluster:  
 
 ![alt text](images/image-5.png)
 
