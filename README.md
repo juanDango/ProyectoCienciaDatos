@@ -70,13 +70,13 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Ejecución Notebooks
 
-Para ejecutar los notebooks, instale las librerias de `.requirements.txt` en su ambiente de jupyter.
+Para ejecutar los notebooks, instale las librerías de `.requirements.txt` en su ambiente de jupyter.
 
 ## Ejecución Producto de datos
 
-Para ejecutar el producto, tanto el dashboard como la api, siga estos pasos:  
+Para ejecutar el producto, tanto el dashboard como la API, siga estos pasos:  
 
-1. Valide que su version de docker compose sea mayor o igual a:
+1. Valide que su versión de docker compose sea mayor o igual a:
 
 ```
 Docker Compose version v2.29.7
@@ -91,7 +91,7 @@ docker compose up
 
 ![alt text](images/image.png)
 
-4. Al ir a la url del api, verá la salida:
+4. Al ir a la url del API, verá la salida:
 
 ![alt text](images/image-1.png)
 
