@@ -62,7 +62,7 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Participantes
 
-- Juan Daniel Castrellón (201729285)
+- Juan Daniel Castrellón Botero (201729285)
 - Kevin Camilo Becerra Walteros (201812779) 
 - Laura Andrea Roncancio Pava (201815149)
 - Javier Alejandro Gómez Muñóz (201217975)
@@ -70,13 +70,13 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 
 ## Ejecución Notebooks
 
-Para ejecutar los notebooks, instale las librerias de `.requirements.txt` en su ambiente de jupyter.
+Para ejecutar los notebooks, instale las librerías de `.requirements.txt` en su ambiente de jupyter.
 
 ## Ejecución Producto de datos
 
-Para ejecutar el producto, tanto el dashboard como la api, siga estos pasos:  
+Para ejecutar el producto, tanto el dashboard como la API, siga estos pasos:  
 
-1. Valide que su version de docker compose sea mayor o igual a:
+1. Valide que su versión de docker compose sea mayor o igual a:
 
 ```
 Docker Compose version v2.29.7
@@ -91,31 +91,31 @@ docker compose up
 
 ![alt text](images/image.png)
 
-4. Al ir a la url del api, verá la salida:
+4. Al ir a la url del API, verá la salida:
 
 ![alt text](images/image-1.png)
 
-4. Al ir a la url del dashboard, debe ver la salida inicial, donde puede usar los filtros y navegar sobre las gráficas:  
+5. Al ir a la url del dashboard, debe ver la salida inicial, donde puede usar los filtros y navegar sobre las gráficas:  
 
 ![alt text](images/image-2.png)
 
-4. Para cargar un excel con nuevos datos a segmentar, use la url `http://127.0.0.1:8050/segmentacion`  
+6. Para cargar un excel con nuevos datos a segmentar, use la url `http://127.0.0.1:8050/segmentacion`  
 
-4.1 Cargue el archivo, extraido de Emis, en formato xlsx.  
+6.1 Cargue el archivo, extraido de Emis, en formato xlsx.  
 
-4.1.1. Si el archivo es válido, encontrará una salida similar a la siguiente imagen despues de unos 5 segundos (Pase al paso 4.2.):  
+6.1.1. Si el archivo es válido, encontrará una salida similar a la siguiente imagen despues de unos 5 segundos (Pase al paso 4.2.):  
 
 ![alt text](images/image-3.png)
 
-4.1.2. Si el archivo no es válido, encontrara la salida de la siguiente imagen, y debe buscar un archivo válido:  
+6.1.2. Si el archivo no es válido, encontrara la salida de la siguiente imagen, y debe buscar un archivo válido:  
 
 ![alt text](images/image-4.png)
 
-4.2. Pulse el boton de procesar y espere unos segundos, al final de la página encontrará algo similar, donde la última columna es el cluster:  
+6.2. Pulse el boton de procesar y espere unos segundos, al final de la página encontrará algo similar, donde la última columna es el cluster:  
 
 ![alt text](images/image-5.png)
 
-5. Descargue el archivo procesado:   
+7. Descargue el archivo procesado:   
 
 ![alt text](images/image-6.png)
 
@@ -133,3 +133,12 @@ docker compose up
 - Impacto de la deuda a corto plazo en el desempeño financiero: Las empresas con mayores niveles de deuda a corto plazo podrían mostrar un desempeño financiero distinto, especialmente en términos de crecimiento de ingresos y beneficios. Este comportamiento sugiere que la gestión de deuda a corto plazo es un factor clave en el rendimiento financiero de las empresas.
 
 - Correlaciones financieras para agrupación: Las correlaciones entre las variables analizadas permiten trazar un perfil general de la salud financiera de las empresas. Estos resultados serán la base para el siguiente paso en el análisis: seleccionar el mejor modelo de agrupación para clasificar a las empresas en diferentes clústeres de acuerdo con su rendimiento y segmentación NAICS, lo que permitirá una segmentación más precisa para la prospección.
+
+## Conclusiones finales
+
+- Se cumplió el objetivo del proyecto ya que se realizó el dashboard para el análisis de los usuarios, donde se les facilita encontrar prospectos según los servicios que ofrecen y se logró hacer la clasificación de las 10.000 empresas de Bogotá por su clúster.
+- Las mayores dificultades que se obtuvieron durante su desarrollo fueron que dada la diversidad de las empresas, una dificultad grande fue agruparlas con una buena métrica de silueta.
+- El producto de datos contribuye a un aumento significativo al valor del negocio, esto ya que se estima que la tasa de oportunidades aumente en 30% a 40%, la tasa de interacción aumente en un 15% a 25% y el coste por lead calificado disminuya en 40% a 50%.
+- Dado que las empresas no están obligadas a reportar sus datos financieros, hay algunos faltantes, aquí habría una oportunidad de mejora.
+- El mejor modelo obtenido es suficiente para dar solución a la oportunidad del negocio.
+
