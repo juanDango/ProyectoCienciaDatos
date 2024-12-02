@@ -141,9 +141,13 @@ docker compose up
 
 ## Conclusiones finales
 
-- Se cumplió el objetivo del proyecto ya que se realizó el dashboard para el análisis de los usuarios, donde se les facilita encontrar prospectos según los servicios que ofrecen y se logró hacer la clasificación de las 10.000 empresas de Bogotá por su clúster.
-- Las mayores dificultades que se obtuvieron durante su desarrollo fueron que dada la diversidad de las empresas, una dificultad grande fue agruparlas con una buena métrica de silueta.
+- Se cumplió el objetivo del proyecto ya que se realizó el dashboard para el análisis de los usuarios, donde se les facilita encontrar prospectos según los servicios que ofrecen y se logró hacer la clasificación de las 10.000 empresas de Bogotá por su cluster.
+- Dada la diversidad de las empresas, una dificultad grande fue agruparlas con una buena métrica de silueta.
 - El producto de datos contribuye a un aumento significativo al valor del negocio, esto ya que se estima que la tasa de oportunidades aumente en 30% a 40%, la tasa de interacción aumente en un 15% a 25% y el coste por lead calificado disminuya en 40% a 50%.
-- Dado que las empresas no están obligadas a reportar sus datos financieros, hay algunos faltantes, aquí habría una oportunidad de mejora.
-- El mejor modelo obtenido es suficiente para dar solución a la oportunidad del negocio.
+- El modelo arroja una clasificación de 25 clusters, los cuales contribuyen al análisis de los equipos de ventas, ya que si bien siguen teniendo índices independientes, les ayuda a tomar un grupo de empresas que comparten tipo de actividad y filtrar por cada variable, haciendo que el análisis deje de tomar una semana entera al analizar empresa por empresa, por ejemplo, filtrar las empresas de comercio mayorista con mayor número de empleados o mayores ingresos y ofrecerse para un servicio en particular de alto volumen.
+- Dado que las empresas no están obligadas a reportar sus datos financieros, hay algunos faltantes, aquí habría una oportunidad de mejorar las salidas de los modelos.
+- Algunos clústeres destacan por oportunidades de crecimiento y utilidad operativa, mientras que otros muestran altos niveles de riesgo debido a bajos retornos (ROA y ROE) o liquidez limitada. La distribución de ingresos sugiere concentración en sectores específicos, como comercio mayorista y minorista, mientras que otros sectores tienen menor participación. Esto evidencia una diversificación económica desigual y la necesidad de estrategias personalizadas para mejorar la sostenibilidad financiera de cada clúster.
+- Los clústeres con altos ingresos operativos y rentabilidad (ROA) representan las mejores oportunidades para prospectar, especialmente en sectores como comercio mayorista y minorista. Sin embargo, clústeres con baja liquidez o alta deuda pueden requerir un análisis más detallado para adaptar las propuestas de valor a sus necesidades específicas.
+- El mejor modelo obtenido, es suficiente para dar solución a la oportunidad del negocio.
+
 
