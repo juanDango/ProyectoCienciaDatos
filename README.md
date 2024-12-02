@@ -48,6 +48,7 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 │   ├── preprocessor.pkl
 │   ├── preprocess_pipeline.py
 │   └── requirements.txt
+├── diagrama_bloques.py  
 ├── eda.ipynb
 ├── pipeline_data_preparation.ipynb
 ├── Proyecto_Entrega1.pdf
