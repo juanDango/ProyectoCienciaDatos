@@ -48,6 +48,7 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 │   ├── preprocessor.pkl
 │   ├── preprocess_pipeline.py
 │   └── requirements.txt
+├── diagrama_bloques.py  
 ├── eda.ipynb
 ├── pipeline_data_preparation.ipynb
 ├── Proyecto_Entrega1.pdf
@@ -67,6 +68,10 @@ Se busca explorar y segmentar compañías según distintos factores financieros 
 - Laura Andrea Roncancio Pava (201815149)
 - Javier Alejandro Gómez Muñóz (201217975)
  
+## Diagrama de preparación de datos
+
+![diagrama de bloques de la preparacion de los datos](images/diagrama_bloques.png)
+
 
 ## Ejecución Notebooks
 
